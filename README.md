@@ -19,6 +19,10 @@ A [BOSH](http://bosh.io/) release for [Kubernetes](http://kubernetes.io).  Forme
 * [Deprecations](#Deprecations)
   * [Deployment scripts and docs](#Deploymentscriptsanddocs)
   * [Heapster](#Heapster)
+<br>
+
+* [Appendix](#Appendix)
+    * [Usage for paas-ta container service](#UsagePaasta)
 
 <!-- vscode-markdown-toc-config
 	numbering=true
@@ -41,7 +45,7 @@ A [BOSH](http://bosh.io/) release for [Kubernetes](http://kubernetes.io).  Forme
   - three availability zones `azs` named `z1`,`z2`,`z3`
 
   Note: the cloud-config properties can be customized by applying ops-files. See `manifests/ops-files` for some examples.
-  
+
   If using loadbalancers then apply the `vm_extension` called `cfcr-master-loadbalancer` to the cloud-config to add the instances to your loadbalancers. See [BOSH documentation](https://bosh.io/docs/cloud-config/#vm-extensions) for information on how to configure loadbalancers.
 
 ####  <a name='HardwareRequirements'></a>Hardware Requirements
@@ -142,7 +146,7 @@ metrics.
 
 By default CFCR runs with CoreDNS in preference of Kube-DNS.
 
-If you are migrating from an earlier version of CFCR, Kube-DNS can be removed by running: 
+If you are migrating from an earlier version of CFCR, Kube-DNS can be removed by running:
 
 `kubectl delete deployment -n kube-system kube-dns`
 
@@ -158,6 +162,15 @@ The BOSH oriented method documented in this README.md is the supported method to
 ###  <a name='Heapster'></a>Heapster
 K8s 1.11 release kicked off the deprecation timeline for the Heapster component, see [here](https://github.com/kubernetes/heapster/blob/master/docs/deprecation.md) for more info. As a result, we're in the process of replacing Heapster with [Metrics Server](https://github.com/kubernetes-incubator/metrics-server) in the upcoming releases of kubo-release.
 
-Heapster can be removed by running: 
+Heapster can be removed by running:
 
 `kubectl delete deployment -n kube-system heapster`
+
+
+##  <a name='Appendix'></a>Appendix
+### <a name='UsagePaasta'></a>Usage for PaaS-TA Container Service
+
+This is a customized kubo-release version for PaaS-TA Container Service Project.
+For applying release to PaaS-TA Container Service, please create release by apply the version and syncronize with that service configuration.
+
+`bosh create-release --force --tarball ./releases/kubo-release-0.34.1.tgz --name kubo --version 0.34.1`
