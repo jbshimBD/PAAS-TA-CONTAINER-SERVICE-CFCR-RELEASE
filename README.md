@@ -6,6 +6,7 @@ A [BOSH](http://bosh.io/) release for [Kubernetes](http://kubernetes.io).  Forme
 
 # Table of Contents
 <!-- vscode-markdown-toc -->
+* [Guide for PaaS-TA](#UsagePaasta)
 * [Prerequisites](#Prerequisites)
   * [Hardware Requirements](#HardwareRequirements)
 * [Deploying CFCR](#DeployingCFCR)
@@ -20,9 +21,7 @@ A [BOSH](http://bosh.io/) release for [Kubernetes](http://kubernetes.io).  Forme
   * [Deployment scripts and docs](#Deploymentscriptsanddocs)
   * [Heapster](#Heapster)
 <br>
-
-* [Appendix](#Appendix)
-    * [Usage for paas-ta container service](#UsagePaasta)
+    
 
 <!-- vscode-markdown-toc-config
 	numbering=true
@@ -30,7 +29,15 @@ A [BOSH](http://bosh.io/) release for [Kubernetes](http://kubernetes.io).  Forme
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
 
+## <a name='UsagePaasta'></a>Usage for PaaS-TA Container Service
+
+This is a customized kubo-release version for PaaS-TA Container Service Project based on kubo-release ver 0.34.0.
+For applying release to PaaS-TA Container Service, please create release by apply the version and syncronize with that service configuration.
+
+`bosh create-release --force --tarball ./releases/kubo-release-0.34.1.tgz --name kubo --version 0.34.1`
+
 ##  <a name='Prerequisites'></a>Prerequisites
+
 - A BOSH Director configured with UAA, Credhub, and [BOSH DNS runtime config](https://raw.githubusercontent.com/cloudfoundry/bosh-deployment/master/runtime-configs/dns.yml). We recommend using [BOSH Bootloader](https://github.com/cloudfoundry/bosh-bootloader) for this.
 - [Latest kubo-deployment tarball](https://github.com/cloudfoundry-incubator/kubo-deployment/releases/latest)
 - Accessing the master:
@@ -167,10 +174,4 @@ Heapster can be removed by running:
 `kubectl delete deployment -n kube-system heapster`
 
 
-##  <a name='Appendix'></a>Appendix
-### <a name='UsagePaasta'></a>Usage for PaaS-TA Container Service
 
-This is a customized kubo-release version for PaaS-TA Container Service Project.
-For applying release to PaaS-TA Container Service, please create release by apply the version and syncronize with that service configuration.
-
-`bosh create-release --force --tarball ./releases/kubo-release-0.34.1.tgz --name kubo --version 0.34.1`
