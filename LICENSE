@@ -176,7 +176,7 @@
    END OF TERMS AND CONDITIONS
 
 
-Notify list of changed files.
+List of files changed in this version(for PaaS-TA Container Service).
 
 1. Added files for specific jobs as route settup, agent install and etc.
 - jobs/kube-apiserver/templates/bin/pre-start.erb 
