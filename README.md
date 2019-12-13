@@ -1,4 +1,4 @@
-# Cloud Foundry Container Runtime
+# PaaS-TA Container Service CFCR Release
 A [BOSH](http://bosh.io/) release for [Kubernetes](http://kubernetes.io).  Formerly named **kubo**.
 
 - **Slack**: #cfcr on https://slack.cloudfoundry.org
